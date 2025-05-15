@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`api.${CLUSTERNAME}.${DOMAINNAME}`) && PathPrefix(`/countries`)
+      match: Host(`api.localdemo.mageekbox.eu`) && PathPrefix(`/countries`)
       services:
         - name: countries-graphql-api-external-service
           port: 443

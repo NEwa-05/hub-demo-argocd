@@ -6,5 +6,5 @@ metadata:
 spec:
   plugin:
     treblle:
-      ProjectId: ${TREBLLE_PROJECTID}
-      ApiKey: ${TREBLLE_APIKEY}
+      ProjectId: c2oPc5f74XWRkFl
+      ApiKey: yEkskpg8wtU0600BTSz1CsSf5mo9fgWoEu5hP659s2dvPccurCv3hwpCD6501zM7

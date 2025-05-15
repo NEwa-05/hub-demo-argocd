@@ -9,7 +9,7 @@ spec:
     oAuthIntrospection:
       forwardAuthorization: false
       clientConfig:
-        url: https://keycloak.${CLUSTERNAME}.${DOMAINNAME}/realms/traefiklabs/protocol/openid-connect/token/introspect
+        url: https://keycloak.localdemo.mageekbox.eu/realms/traefiklabs/protocol/openid-connect/token/introspect
         tokenTypeHint: access_token
         headers: 
           Authorization: Basic YXBpOm45Z2tCTEhpczd6SmhrN3hWcDAwdzlvSVR5eElPTmVS

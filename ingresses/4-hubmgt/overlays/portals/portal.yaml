@@ -8,6 +8,6 @@ spec:
   title: API Portal
   description: "Developer Portal"
   trustedUrls:
-    - https://portal.${CLUSTERNAME}.${DOMAINNAME}/
+    - https://portal.localdemo.mageekbox.eu/
   ui:
     logoUrl: https://traefik.io/favicon.png

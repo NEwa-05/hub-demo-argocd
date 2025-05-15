@@ -7,7 +7,7 @@ metadata:
 spec:
   plugin:
     oidc:
-      issuer: "https://keycloak.${CLUSTERNAME}.${DOMAINNAME}/realms/traefiklabs"
+      issuer: "https://keycloak.localdemo.mageekbox.eu/realms/traefiklabs"
       redirectUrl: "/cback"
       clientID: whoami
       clientSecret: bdfbDPx3ysnvzcNwzvJFWHMPKnHVn79c

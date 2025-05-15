@@ -34,7 +34,7 @@ keycloakConfigCli:
     enabled: true
   extraEnvVars:
   - name: KEYCLOAK_URL
-    value: "https://keycloak.${CLUSTERNAME}.${DOMAINNAME}"
+    value: "https://keycloak.localdemo.mageekbox.eu"
   - name: JAVA_OPTS_APPEND
     value: "-server -Xms256m -Xmx384m"
   - name: KEYCLOAK_AVAILABILITYCHECK_TIMEOUT

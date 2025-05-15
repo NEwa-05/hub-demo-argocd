@@ -6,10 +6,10 @@ metadata:
 spec:
   plugin:
     oAuthClientCredentials:
-      url: https://keycloak.${CLUSTERNAME}.${DOMAINNAME}/realms/traefiklabs/protocol/openid-connect/token
+      url: https://keycloak.localdemo.mageekbox.eu/realms/traefiklabs/protocol/openid-connect/token
       clientID: api
       clientSecret: n9gkBLHis7zJhk7xVp00w9oITyxIONeR
-      audience: https://api.${CLUSTERNAME}.${DOMAINNAME}
+      audience: https://api.localdemo.mageekbox.eu
       store:
         keyPrefix: client-cred
         redis:

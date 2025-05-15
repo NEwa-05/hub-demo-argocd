@@ -9,14 +9,14 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`api.${CLUSTERNAME}.${DOMAINNAME}`) && PathPrefix(`/customers`) && Method(`POST`)
+      match: Host(`api.localdemo.mageekbox.eu`) && PathPrefix(`/customers`) && Method(`POST`)
       services:
         - name: customer-app
           port: 3000
       middlewares:
         - name: customers-basic-auth
     - kind: Rule
-      match: Host(`api.${CLUSTERNAME}.${DOMAINNAME}`) && PathPrefix(`/customers`) && Method(`GET`)
+      match: Host(`api.localdemo.mageekbox.eu`) && PathPrefix(`/customers`) && Method(`GET`)
       services:
         - name: customer-app
           port: 3000

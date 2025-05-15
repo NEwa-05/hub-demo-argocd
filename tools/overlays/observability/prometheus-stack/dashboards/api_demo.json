@@ -82,7 +82,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "sum(count_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.${DOMAINNAME}` [720h]))",
+          "expr": "sum(count_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.mageekbox.eu` [720h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -147,7 +147,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "sum_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.${DOMAINNAME}` |= \"RequestProtocol\" | json | OriginStatus=200 | unwrap DownstreamContentSize |  __error__=\"\" [$__interval])",
+          "expr": "sum_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.mageekbox.eu` |= \"RequestProtocol\" | json | OriginStatus=200 | unwrap DownstreamContentSize |  __error__=\"\" [$__interval])",
           "hide": false,
           "queryType": "range",
           "refId": "A"
@@ -235,7 +235,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "sum(count_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.${DOMAINNAME}` | DownstreamStatus=~`[2-3][0-9][0-9]+` [720h]))",
+          "expr": "sum(count_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.mageekbox.eu` | DownstreamStatus=~`[2-3][0-9][0-9]+` [720h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -297,7 +297,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "sum(count_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.${DOMAINNAME}` | DownstreamStatus=~`[4-5][0-9][0-9]+` [720h]))",
+          "expr": "sum(count_over_time({job=\"traefik/traefik\"} | json | RequestAddr=`api.$domain.mageekbox.eu` | DownstreamStatus=~`[4-5][0-9][0-9]+` [720h]))",
           "queryType": "range",
           "refId": "A"
         }
@@ -334,7 +334,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "{job=\"traefik/traefik\"} | json | RequestAddr=\"api.$domain.${DOMAINNAME}\" | DownstreamStatus=~`[2-3][0-9][0-9]+`",
+          "expr": "{job=\"traefik/traefik\"} | json | RequestAddr=\"api.$domain.mageekbox.eu\" | DownstreamStatus=~`[2-3][0-9][0-9]+`",
           "queryType": "range",
           "refId": "A"
         }
@@ -372,7 +372,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "{job=\"traefik/traefik\"} | json | RequestAddr = `api.$domain.${DOMAINNAME}` | DownstreamStatus =~ `[4-5][0-9][0-9]+`",
+          "expr": "{job=\"traefik/traefik\"} | json | RequestAddr = `api.$domain.mageekbox.eu` | DownstreamStatus =~ `[4-5][0-9][0-9]+`",
           "queryType": "range",
           "refId": "A"
         }
@@ -409,7 +409,7 @@
             "uid": "Loki"
           },
           "editorMode": "code",
-          "expr": "{job=\"traefik/traefik\"} | json | RequestAddr=\"api.$domain.${DOMAINNAME}\"",
+          "expr": "{job=\"traefik/traefik\"} | json | RequestAddr=\"api.$domain.mageekbox.eu\"",
           "queryType": "range",
           "refId": "A"
         }
@@ -426,19 +426,19 @@
       {
         "current": {
           "selected": false,
-          "text": "${CLUSTERNAME}",
-          "value": "${CLUSTERNAME}"
+          "text": "localdemo",
+          "value": "localdemo"
         },
         "hide": 0,
         "name": "domain",
         "options": [
           {
             "selected": true,
-            "text": "${CLUSTERNAME}",
-            "value": "${CLUSTERNAME}"
+            "text": "localdemo",
+            "value": "localdemo"
           }
         ],
-        "query": "${CLUSTERNAME}",
+        "query": "localdemo",
         "skipUrlSync": false,
         "type": "textbox"
       }
