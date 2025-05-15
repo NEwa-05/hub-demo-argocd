@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/hub
+
+patches:
+  - path: apikey-middleware.yaml
+  - path: apikey-secret.yaml
+  - path: clientcred-middleware.yaml
+  - path: cors-middleware.yaml
+  - path: customers-basic-auth.yaml
+  - path: drl-employee-middleware.yaml
+  - path: drl-external-middleware.yaml
+  - path: headers-middleware.yaml
+  - path: jwt-middleware.yaml
+  - path: oauth-middleware.yaml
+  - path: oidc-middleware.yaml
+  - path: rl-employee-middleware.yaml
+  - path: rl-external-middleware.yaml
+  - path: strip-middleware.yaml
+  - path: whoami-basic-auth.yaml

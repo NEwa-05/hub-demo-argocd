@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-app-user2
+  namespace: traffic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traffic-app
+  template:
+    metadata:
+      labels:
+        app: traffic-app
+    spec:
+      containers:
+        - name: traffic
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "50m"
+            limits:
+              memory: "32Mi"
+              cpu: "50m"
+          image: mmatur/tools:latest
+          args:
+            - /data/traffic.sh
+          env:
+            - name: GW_DOMAIN
+              value: api.${CLUSTERNAME}.${DOMAINNAME}
+            - name: TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: test-user-token
+                  key: token2
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          configMap:
+            name: traffic-data
+            defaultMode: 0777

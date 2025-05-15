@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base
+
+patches:
+  - path: catalogs/employees/catalog.yaml
+  - path: ingresses/customers/api-ingress.yaml
+  - path: ingresses/employees/api-ingress.yaml
+  - path: ingresses/external-graphql/api-ingress.yaml
+  - path: ingresses/whoami/ingress.yaml
+  - path: plans/standard/plan.yaml
+  - path: portals/portal-ingress.yaml
+  - path: portals/portal.yaml
+  - path: managed-subscriptions/employees/managed-subscription.yaml

@@ -1,0 +1,14 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: ManagedSubscription
+metadata:
+  name: combined-managed-subscription
+  namespace: apps
+spec:
+  apiPlan:
+    name: standard
+  apis:
+  - name: employee-api
+  - name: countries-graphql-api-external
+  applications:
+  - appId: combined-sub

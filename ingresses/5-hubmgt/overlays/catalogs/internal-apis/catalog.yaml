@@ -1,0 +1,10 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: APICatalogItem
+metadata:
+  name: internal-api-catalog
+  namespace: apps
+spec:
+  apiBundles:
+  - name: internal-apis
+  everyone: true

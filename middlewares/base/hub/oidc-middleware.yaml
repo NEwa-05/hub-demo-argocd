@@ -1,0 +1,13 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: whoami-oidc
+  namespace: apps
+spec:
+  plugin:
+    oidc:
+      issuer: "https://keycloak.demo.demo.traefiklabs.tech/realms/traefiklabs"
+      redirectUrl: "/cback"
+      clientID: myclientid
+      clientSecret: mysecret

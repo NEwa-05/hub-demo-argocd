@@ -1,0 +1,18 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: tickets-clientcred
+  namespace: apps
+spec:
+  plugin:
+    oAuthClientCredentials:
+      url: https://keycloak.${CLUSTERNAME}.${DOMAINNAME}/realms/traefiklabs/protocol/openid-connect/token
+      clientID: api
+      clientSecret: n9gkBLHis7zJhk7xVp00w9oITyxIONeR
+      audience: https://api.${CLUSTERNAME}.${DOMAINNAME}
+      store:
+        keyPrefix: client-cred
+        redis:
+          endpoints:
+            - redis-master.redis.svc.cluster.local:6379
+        secret: powpowpowpowpowpowpowpow

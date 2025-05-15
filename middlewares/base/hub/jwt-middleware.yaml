@@ -1,0 +1,11 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+    name: customers-jwt
+    namespace: apps
+spec:
+  plugin:
+    jwt:
+      jwksUrl: "https://keycloak.demo.demo.traefiklabs.tech/realms/traefiklabs/protocol/openid-connect/certs"
+      claims: Contains(`groups`, `admin`)

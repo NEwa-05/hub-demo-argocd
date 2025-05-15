@@ -1,0 +1,4 @@
+.env
+.lego
+.sops.yaml
+age.agekey

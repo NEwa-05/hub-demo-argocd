@@ -1,0 +1,83 @@
+image:
+  tag: "v3.3"
+deployment:
+  replicas: 2
+ingressRoute:
+  dashboard:
+    enabled: false
+ingressClass:
+  enabled: false
+providers:
+  kubernetesCRD:
+    enabled: true
+    allowCrossNamespace: true
+    allowExternalNameServices: true
+    allowEmptyServices: true
+  kubernetesIngress:
+    enabled: true
+    allowExternalNameServices: true
+    allowEmptyServices: true
+logs:
+  general:
+    format: json
+    level: DEBUG
+  access:
+    enabled: true
+    format: json
+    addInternals: true
+    fields:
+      general:
+        defaultmode: keep
+      headers:
+        defaultmode: keep
+metrics:
+  addInternals: true
+  prometheus:
+    entryPoint: metrics
+    addentrypointslabels: true
+    addrouterslabels: true
+    addserviceslabels: true
+  otlp:
+    enabled: true
+    addentrypointslabels: true
+    addrouterslabels: true
+    addserviceslabels: true
+    http:
+      enabled: true
+      endpoint: http://prometheus-stack-kube-prom-prometheus.observability:9090/api/v1/otlp/v1/metrics
+      tls:
+        insecureSkipVerify: true
+tracing:
+  addInternals: true
+  otlp:
+    enabled: true
+    http:
+      enabled: true
+      endpoint: http://simplest-collector.observability.svc.cluster.local:4318/v1/traces
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+              - key: "app.kubernetes.io/name"
+                operator: In
+                values:
+                  - traefik
+          topologyKey: kubernetes.io/hostname
+        weight: 100
+tlsStore:
+  default:
+    defaultCertificate:
+      secretName: wildcard-mageekbox
+ports:
+  websecure:
+    tls:
+      enabled: true
+resources:
+  requests:
+    memory: 128Mi
+    cpu: 50m
+  limits:
+    memory: 128Mi
+    cpu: 50m

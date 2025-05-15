@@ -1,0 +1,31 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: api-ingress-customers
+  namespace: apps
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`api.demo.demo.traefiklabs.tech`) && PathPrefix(`/customers`) && Query(`canary`, `true`)
+      services:
+        - name: customers-canary
+          kind: TraefikService
+          namespace: apps
+    - kind: Rule
+      match: Host(`api.demo.demo.traefiklabs.tech`) && PathPrefix(`/customers`) && Header(`version`, `v3`)
+      services:
+        - name: customer-app-v3
+          port: 3000
+    - kind: Rule
+      match: Host(`api.demo.demo.traefiklabs.tech`) && PathPrefix(`/customers`) && Method(`POST`)
+      services:
+        - name: customer-app
+          port: 3000
+    - kind: Rule
+      match: Host(`api.demo.demo.traefiklabs.tech`) && PathPrefix(`/customers`) && Method(`GET`)
+      services:
+        - name: customer-app
+          port: 3000

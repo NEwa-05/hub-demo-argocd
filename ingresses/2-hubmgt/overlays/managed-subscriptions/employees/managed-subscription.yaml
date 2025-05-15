@@ -1,0 +1,13 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: ManagedSubscription
+metadata:
+  name: employee-managed-subscription
+  namespace: apps
+spec:
+  apiPlan:
+    name: standard
+  apis:
+  - name: employee-api
+  applications:
+  - appId: employee-api

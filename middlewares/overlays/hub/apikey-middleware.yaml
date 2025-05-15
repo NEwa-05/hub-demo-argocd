@@ -1,0 +1,15 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: customers-apikey
+  namespace: apps
+spec:
+  plugin:
+    apiKey:
+      secretNonBase64Encoded: true
+      secretValues:
+        - urn:k8s:secret:customers-apikey:admin
+        - urn:k8s:secret:customers-apikey:mypassword
+      keySource:
+        header: x-api-key

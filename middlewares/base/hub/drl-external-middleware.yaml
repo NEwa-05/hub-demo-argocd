@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: graphql-drl
+  namespace: apps
+spec:
+  plugin:
+    distributedRateLimit:
+      responseHeaders: true
+      period: 30s
+      limit: 10
+      burst: 15
+      store:
+        redis:
+          endpoints:
+            - redis-master.redis.svc.cluster.local:6379

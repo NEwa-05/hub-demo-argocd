@@ -1,0 +1,10 @@
+apiVersion: hub.traefik.io/v1alpha1
+kind: APIBundle
+metadata:
+  name: internal-apis
+  namespace: apps
+spec:
+  apis:
+  - name: customer-api-versioned
+  - name: employee-api
+  title: internal-apis

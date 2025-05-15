@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/observability
+
+generators:
+  - secret-generator.yaml
+
+helmCharts:
+  - name: kube-prometheus-stack
+    includeCRDs: true
+    repo: https://prometheus-community.github.io/helm-charts
+    releaseName: prometheus-stack
+    namespace: observability
+    valuesFile: prometheus-stack/values.yaml
+
+patches:
+  - path: ingress.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - behavior: create
+    files:
+      - traefik.json=prometheus-stack/dashboards/traefik.json
+      - api_demo.json=prometheus-stack/dashboards/api_demo.json
+    name: grafana-traefik-dashboards
+    namespace: observability

@@ -1,0 +1,119 @@
+image:
+  registry: ghcr.io
+  repository: traefik/traefik-hub
+  tag: "v3"
+deployment:
+  replicas: 2
+ingressRoute:
+  dashboard:
+    enabled: false
+ingressClass:
+  enabled: false
+providers:
+  kubernetesCRD:
+    enabled: true
+    allowCrossNamespace: true
+    allowExternalNameServices: true
+    allowEmptyServices: true
+  kubernetesIngress:
+    enabled: true
+    allowExternalNameServices: true
+    allowEmptyServices: true
+logs:
+  general:
+    format: json
+    level: DEBUG
+  access:
+    enabled: true
+    format: json
+    addInternals: true
+    fields:
+      general:
+        defaultmode: keep
+      headers:
+        defaultmode: keep
+metrics:
+  addInternals: true
+  prometheus:
+    entryPoint: metrics
+    addentrypointslabels: true
+    addrouterslabels: true
+    addserviceslabels: true
+  otlp:
+    enabled: true
+    addentrypointslabels: true
+    addrouterslabels: true
+    addserviceslabels: true
+    http:
+      enabled: true
+      endpoint: http://prometheus-stack-kube-prom-prometheus.observability:9090/api/v1/otlp/v1/metrics
+      tls:
+        insecureSkipVerify: true
+tracing:
+  addInternals: true
+  otlp:
+    enabled: true
+    http:
+      enabled: true
+      endpoint: http://simplest-collector.observability.svc.cluster.local:4318/v1/traces
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+              - key: "app.kubernetes.io/name"
+                operator: In
+                values:
+                  - traefik
+          topologyKey: kubernetes.io/hostname
+        weight: 100
+tlsStore:
+  default:
+    defaultCertificate:
+      secretName: wildcard-mageekbox
+env:
+- name: POD_NAME
+  valueFrom:
+    fieldRef:
+      fieldPath: metadata.name
+- name: POD_NAMESPACE
+  valueFrom:
+    fieldRef:
+      fieldPath: metadata.namespace
+- name: GANDIV5_API_KEY
+  valueFrom:
+    secretKeyRef:
+      name: dnsapikey
+      key: token
+- name: LEGO_DISABLE_CNAME_SUPPORT
+  value: "true"
+resources:
+  requests:
+    memory: 256Mi
+    cpu: 100m
+  limits:
+    memory: 256Mi
+    cpu: 100m
+ports:
+  websecure:
+    tls:
+      enabled: true
+hub:
+  token: hub-license
+  apimanagement:
+    enabled: true
+    openApi:
+      validateRequestMethodAndPath: false
+  redis:
+    endpoints: redis-master.redis.svc.cluster.local:6379
+  experimental:
+    aigateway: true
+experimental:
+  plugins:
+    treblle:
+      moduleName: github.com/Treblle/TreblleTraefikPluginGo
+      version: v1.0.5
+podSecurityContext:
+  fsGroup: 65532
+  fsGroupChangePolicy: OnRootMismatch

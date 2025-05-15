@@ -1,0 +1,11 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: APIVersion
+metadata:
+  name: customer-api-v2
+  namespace: apps
+spec:
+  release: 2.0.0
+  openApiSpec:
+    path: /openapi.yaml
+    validateRequestMethodAndPath: false

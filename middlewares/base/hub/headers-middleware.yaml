@@ -1,0 +1,10 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: whoami-headers
+  namespace: apps
+spec:
+  headers:
+    customRequestHeaders:
+      X-Demo-Header: "this_is_a_test"

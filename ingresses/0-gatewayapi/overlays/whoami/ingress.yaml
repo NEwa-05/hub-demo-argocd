@@ -1,0 +1,18 @@
+---
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TLSRoute
+metadata:
+  name: whoami-ingress
+  namespace: apps
+spec:
+  parentRefs:
+    - name: traefik
+      sectionName: websecure
+      kind: Gateway
+  hostnames:
+    - whoami.${CLUSTERNAME}.${DOMAINNAME}
+  rules:
+    - backendRefs:
+        - name: whoami
+          namespace: apps
+          port: 80

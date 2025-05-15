@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../base
+
+patches:
+  - path: apis/customers/api-v1.yaml
+  - path: catalogs/customers/catalog.yaml
+  - path: catalogs/employees/catalog.yaml
+  - path: catalogs/external-graphql/catalog.yaml
+  - path: ingresses/customers/api-ingress.yaml
+  - path: ingresses/employees/api-ingress.yaml
+  - path: ingresses/external-graphql/api-ingress.yaml
+  - path: ingresses/whoami/ingress.yaml
+  - path: managed-subscriptions/employees/managed-subscription.yaml
+  - path: managed-subscriptions/external-graphql/managed-subscription.yaml
+  - path: plans/standard/plan.yaml
+  - path: portals/portal-ingress.yaml
+  - path: portals/portal.yaml
+  - path: traffic/traffic-user.yaml
+  - path: traffic/traffic-user2.yaml

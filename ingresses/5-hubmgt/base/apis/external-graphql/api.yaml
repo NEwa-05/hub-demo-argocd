@@ -1,0 +1,10 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: API
+metadata:
+  name: countries-graphql-api-external
+  namespace: apps
+  labels:
+    area: external
+    external: name
+spec: {}

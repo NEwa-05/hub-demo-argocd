@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: observability
+
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - behavior: create
+    files:
+      - dashboard-hub.json=grafana-dashboards/hub/dashboard-hub.json
+      - hub-apis.json=grafana-dashboards/hub/hub-apis.json
+      - hub-main.json=grafana-dashboards/hub/hub-main.json
+      - hub-users.json=grafana-dashboards/hub/hub-users.json
+    name: grafana-hub-dashboards
+    namespace: monitoring

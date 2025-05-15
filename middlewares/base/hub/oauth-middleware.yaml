@@ -1,0 +1,23 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: flights-oauth
+  namespace: apps
+spec:
+  plugin:
+    oAuthIntrospection:
+      forwardAuthorization: false
+      clientConfig:
+        url: https://keycloak.demo.demo.traefiklabs.tech/realms/traefiklabs/protocol/openid-connect/token/introspect
+        tokenTypeHint: access_token
+        headers: 
+          Authorization: Basic "clientid\:clientsec\|base64"
+      tokenSource:
+        header: Authorization
+        headerAuthScheme: Bearer
+      forwardHeaders:
+        groups: groups
+        Expires-At: exp
+      claims: Contains(`groups`, `internal`)
+

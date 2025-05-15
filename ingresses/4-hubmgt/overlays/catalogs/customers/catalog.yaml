@@ -1,0 +1,12 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: APICatalogItem
+metadata:
+  name: customer-api-catalog
+  namespace: apps
+spec:
+  apiPlan:
+    name: standard
+  apis:
+  - name: customer-api-versioned
+  everyone: true

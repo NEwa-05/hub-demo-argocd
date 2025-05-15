@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - apikey-middleware.yaml
+  - apikey-secret.yaml
+  - clientcred-middleware.yaml
+  - customers-basic-auth.yaml
+  - cors-middleware.yaml
+  - drl-employee-middleware.yaml
+  - drl-external-middleware.yaml
+  - headers-middleware.yaml
+  - jwt-middleware.yaml
+  - oauth-middleware.yaml
+  - oidc-middleware.yaml
+  - rl-employee-middleware.yaml
+  - rl-external-middleware.yaml
+  - strip-middleware.yaml
+  - treblle-middleware.yaml
+  - whoami-basic-auth.yaml
+  - whoami-redirect.yaml

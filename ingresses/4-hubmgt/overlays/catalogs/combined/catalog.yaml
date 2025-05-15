@@ -1,0 +1,10 @@
+---
+apiVersion: hub.traefik.io/v1alpha1
+kind: APICatalogItem
+metadata:
+  name: combined-api-catalog
+  namespace: apps
+spec:
+  apis:
+  - name: countries-graphql-api-external
+  everyone: true

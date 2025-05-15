@@ -1,0 +1,9 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: whoami-redirect
+  namespace: apps
+spec:
+  redirectRegex:
+    regex: ^https://whoami.(.*)
+    replacement: https://tst.${1}

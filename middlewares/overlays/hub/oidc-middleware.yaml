@@ -1,0 +1,21 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: whoami-oidc
+  namespace: apps
+spec:
+  plugin:
+    oidc:
+      issuer: "https://keycloak.${CLUSTERNAME}.${DOMAINNAME}/realms/traefiklabs"
+      redirectUrl: "/cback"
+      clientID: whoami
+      clientSecret: bdfbDPx3ysnvzcNwzvJFWHMPKnHVn79c
+      scopes:
+        - openid
+        - offline_access
+      session:
+        name: "%s-session"
+      forwardHeaders:
+        X-Traefik-User: preferred_username
+        X-Traefik-Group: groups
