@@ -7,4 +7,3 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   url: https://github.com/NEwa-05/hub-demo-argocd.git
-  password: ${GH_TOKEN}
