@@ -68,7 +68,7 @@ metadata:
 spec:
   project: default
   source:
-    path: traefik/overlays/hub-mgt
+    path: traefik/overlays/proxy
     repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
     targetRevision: localdemo
   destination:
@@ -83,7 +83,7 @@ metadata:
 spec:
   project: default
   source:
-    path: ingresses/3-hubmgt/overlays
+    path: ingresses/1-proxy/overlays
     repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
     targetRevision: localdemo
   destination:
@@ -98,7 +98,7 @@ metadata:
 spec:
   project: default
   source:
-    path: middlewares/overlays/hub
+    path: middlewares/overlays/proxy
     repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
     targetRevision: localdemo
   destination:
