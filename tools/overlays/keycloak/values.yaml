@@ -1,7 +1,7 @@
-image:
-  registry: docker.io
-  repository: bitnami/keycloak
-  tag: 24.0.5-debian-12-r3
+# image:
+#   registry: docker.io
+#   repository: bitnami/keycloak
+#   tag: 24.0.5-debian-12-r3
 resources:
   requests:
     memory: 512Mi
@@ -18,10 +18,10 @@ service:
 proxyHeaders: xforwarded
 keycloakConfigCli:
   enabled: true
-  image:
-    registry: docker.io
-    repository: bitnami/keycloak-config-cli
-    tag: 5.12.0-debian-12-r6
+  # image:
+  #   registry: docker.io
+  #   repository: bitnami/keycloak-config-cli
+  #   tag: 5.12.0-debian-12-r6
   resources:
     requests:
       memory: 256Mi
@@ -34,7 +34,7 @@ keycloakConfigCli:
     enabled: true
   extraEnvVars:
   - name: KEYCLOAK_URL
-    value: "https://keycloak.${CLUSTERNAME}.${DOMAINNAME}"
+    value: "http://keycloak.keycloak.svc.cluster.local"
   - name: JAVA_OPTS_APPEND
     value: "-server -Xms256m -Xmx384m"
   - name: KEYCLOAK_AVAILABILITYCHECK_TIMEOUT

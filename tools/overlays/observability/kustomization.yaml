@@ -20,9 +20,8 @@ patches:
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
-  - behavior: create
+  - behavior: replace
     files:
-      - traefik.json=prometheus-stack/dashboards/traefik.json
-      - api_demo.json=prometheus-stack/dashboards/api_demo.json
-    name: grafana-traefik-dashboards
+      - api_demo.json=prometheus-stack/grafana-dashboards/apig/api_demo.json
+    name: grafana-gateway-dashboard
     namespace: observability

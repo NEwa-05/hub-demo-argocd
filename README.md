@@ -15,7 +15,8 @@ source .env
 ### Create K3d cluster
 
 ```bash
-sudo k3d cluster create demo-argo --port 80:80@loadbalancer --port 443:443@loadbalancer --k3s-arg "--disable=traefik@server:0" --k3s-arg="--cluster-domain=${CLUSTERNAME}.${DOMAINNAME}@server:0"
+sudo k3d cluster create demo-argo --port 80:80@loadbalancer --port 443:443@loadbalancer --k3s-arg "--disable=traefik@server:0"
+k3d kubeconfig get demo-argo > .kubeconfig
 ```
 
 generate certificate from variables:

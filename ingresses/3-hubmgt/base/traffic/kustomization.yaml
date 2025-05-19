@@ -7,6 +7,9 @@ resources:
   - traffic-user2.yaml
   - user-token-secret.yaml
 
+generators:
+  - secret-generator.yaml
+
 configMapGenerator:
   - behavior: create
     files:

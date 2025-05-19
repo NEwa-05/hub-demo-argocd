@@ -9,10 +9,13 @@ spec:
   project: default
   source:
     path: tools/overlays/observability
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
 ### Keycloak
 ---    
 apiVersion: argoproj.io/v1alpha1
@@ -24,7 +27,7 @@ spec:
   project: default
   source:
     path: tools/overlays/keycloak
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
@@ -39,7 +42,7 @@ spec:
   project: default
   source:
     path: apps/overlays
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
@@ -54,7 +57,7 @@ spec:
   project: default
   source:
     path: ingresses/traefik-dashboard/overlays
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
@@ -69,7 +72,7 @@ spec:
   project: default
   source:
     path: traefik/overlays/hub-mgt
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
@@ -84,7 +87,7 @@ spec:
   project: default
   source:
     path: ingresses/3-hubmgt/overlays
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
@@ -99,7 +102,7 @@ spec:
   project: default
   source:
     path: middlewares/overlays/hub
-    repoURL: https://github.com/NEwa-05/20250507-apim-demo-argo.git
+    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
