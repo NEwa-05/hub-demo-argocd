@@ -25,3 +25,7 @@ configMapGenerator:
       - api_demo.json=prometheus-stack/grafana-dashboards/apig/api_demo.json
     name: grafana-gateway-dashboard
     namespace: observability
+generatorOptions:
+  labels:
+    grafana_dashboard: true
+    

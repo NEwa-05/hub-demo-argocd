@@ -15,7 +15,6 @@ spec:
     server: 'https://kubernetes.default.svc'
   syncPolicy:
     syncOptions:
-      - ServerSideApply=true
       - PruneLast=true
 ### Keycloak
 ---    
