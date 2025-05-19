@@ -40,7 +40,7 @@ grafana:
     dashboards:
       enabled: true
       label: grafana_dashboard
-      labelValue: true
+      labelValue: "true"
       folder: /var/lib/grafana/dashboards
       updateIntervalSeconds: 10
       folderAnnotation: grafana_folder
