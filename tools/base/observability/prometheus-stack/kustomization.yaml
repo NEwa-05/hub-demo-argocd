@@ -23,7 +23,3 @@ configMapGenerator:
       - traefik.json=grafana-dashboards/traefik/traefik.json
     name: grafana-traefik-dashboard
     namespace: observability
-
-generatorOptions:
-  labels:
-    grafana_dashboard: "true"

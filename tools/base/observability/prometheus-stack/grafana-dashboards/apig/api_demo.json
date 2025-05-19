@@ -426,19 +426,19 @@
       {
         "current": {
           "selected": false,
-          "text": "localdemo",
-          "value": "localdemo"
+          "text": "demo",
+          "value": "demo"
         },
         "hide": 0,
         "name": "domain",
         "options": [
           {
             "selected": true,
-            "text": "localdemo",
-            "value": "localdemo"
+            "text": "demo",
+            "value": "demo"
           }
         ],
-        "query": "localdemo",
+        "query": "demo",
         "skipUrlSync": false,
         "type": "textbox"
       }
