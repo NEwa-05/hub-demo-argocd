@@ -13,6 +13,10 @@ spec:
     targetRevision: localdemo
   destination:
     server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+      - PruneLast=true
 ### Keycloak
 ---    
 apiVersion: argoproj.io/v1alpha1
