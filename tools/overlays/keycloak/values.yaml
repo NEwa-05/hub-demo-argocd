@@ -33,8 +33,10 @@ keycloakConfigCli:
   cleanupAfterFinished:
     enabled: true
   extraEnvVars:
-  # - name: KEYCLOAK_URL
-  #   value: "https://keycloak.localdemo.mageekbox.eu"
+  # - name: KEYCLOAK_SSLVERIFY
+  #   value: "false"
+  - name: KEYCLOAK_URL
+    value: "http://keycloak.keycloak.svc.cluster.local"
   - name: JAVA_OPTS_APPEND
     value: "-server -Xms256m -Xmx384m"
   - name: KEYCLOAK_AVAILABILITYCHECK_TIMEOUT
