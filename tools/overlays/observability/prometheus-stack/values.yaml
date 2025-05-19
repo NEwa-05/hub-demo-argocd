@@ -36,38 +36,41 @@ grafana:
       type: jaeger
       url: http://simplest-query:16686
       version: 1
-  # dashboardProviders:
-  #   dashboardproviders.yaml:
-  #   apiVersion: 1
-  #   providers:
-  #   - name: apimdash
-  #     folder: Hub API Management
-  #     type: file
-  #     orgId: 1
-  #     updateIntervalSeconds: 10
-  #     options:
-  #       path: /var/lib/grafana/dashboards/apimdash
-  #       foldersFromFilesStructure: false
-  #   - name: apigdash
-  #     folder: Hub API Gateway
-  #     type: file
-  #     orgId: 1
-  #     updateIntervalSeconds: 10
-  #     options:
-  #       path: /var/lib/grafana/dashboards/apigdash
-  #       foldersFromFilesStructure: false
-  #   - name: traefikdash
-  #     folder: Traefik
-  #     type: file
-  #     orgId: 1
-  #     updateIntervalSeconds: 10
-  #     options:
-  #       path: /var/lib/grafana/dashboards/traefikdash
-  #       foldersFromFilesStructure: false
-  # dashboardsConfigMaps:
-  #   apimdash: "grafana-apim-dashboards"
-  #   apigdash: "grafana-gateway-dashboard"
-  #   traefikdash: "grafana-traefik-dashboard"
+  sidecar:
+    dashboards:
+      enabled: false
+  dashboardProviders:
+    dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: apimdash
+      folder: Hub API Management
+      type: file
+      orgId: 1
+      updateIntervalSeconds: 10
+      options:
+        path: /var/lib/grafana/dashboards/apimdash
+        foldersFromFilesStructure: false
+    - name: apigdash
+      folder: Hub API Gateway
+      type: file
+      orgId: 1
+      updateIntervalSeconds: 10
+      options:
+        path: /var/lib/grafana/dashboards/apigdash
+        foldersFromFilesStructure: false
+    - name: traefikdash
+      folder: Traefik
+      type: file
+      orgId: 1
+      updateIntervalSeconds: 10
+      options:
+        path: /var/lib/grafana/dashboards/traefikdash
+        foldersFromFilesStructure: false
+  dashboardsConfigMaps:
+    apimdash: "grafana-apim-dashboards"
+    apigdash: "grafana-gateway-dashboard"
+    traefikdash: "grafana-traefik-dashboard"
   adminPassword: traefikhub
 prometheus:
   global:
