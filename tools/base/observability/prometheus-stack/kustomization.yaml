@@ -26,4 +26,4 @@ configMapGenerator:
 
 generatorOptions:
   labels:
-    grafana_dashboard: true
+    grafana_dashboard: "true"

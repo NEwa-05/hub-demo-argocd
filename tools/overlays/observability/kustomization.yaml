@@ -27,5 +27,5 @@ configMapGenerator:
     namespace: observability
 generatorOptions:
   labels:
-    grafana_dashboard: true
+    grafana_dashboard: "true"
     
