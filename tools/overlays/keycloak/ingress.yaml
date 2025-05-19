@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`keycloak.localdemo.mageekbox.eu`)
+      match: Host(`keycloak.${CLUSTERNAME}.${DOMAINNAME}`)
       services:
         - name: keycloak
           port: 80

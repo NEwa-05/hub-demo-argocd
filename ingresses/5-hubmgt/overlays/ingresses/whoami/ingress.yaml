@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`whoami.localdemo.mageekbox.eu`) || Host(`tst.localdemo.mageekbox.eu`)
+      match: Host(`whoami.${CLUSTERNAME}.${DOMAINNAME}`) || Host(`tst.${CLUSTERNAME}.${DOMAINNAME}`)
       services:
         - name: whoami
           port: 80

@@ -11,7 +11,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`api.localdemo.mageekbox.eu`) && PathPrefix(`/employees`)
+      match: Host(`api.${CLUSTERNAME}.${DOMAINNAME}`) && PathPrefix(`/employees`)
       services:
         - name: employee-app-latency
           port: 3000

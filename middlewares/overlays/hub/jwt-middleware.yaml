@@ -6,5 +6,5 @@ metadata:
 spec:
   plugin:
     jwt:
-      jwksUrl: "https://keycloak.localdemo.mageekbox.eu/realms/traefiklabs/protocol/openid-connect/certs"
+      jwksUrl: "https://keycloak.${CLUSTERNAME}.${DOMAINNAME}/realms/traefiklabs/protocol/openid-connect/certs"
       claims: Contains(`groups`, `admin`)

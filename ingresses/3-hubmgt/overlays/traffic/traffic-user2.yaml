@@ -28,7 +28,7 @@ spec:
             - /data/traffic.sh
           env:
             - name: GW_DOMAIN
-              value: api.localdemo.mageekbox.eu
+              value: api.${CLUSTERNAME}.${DOMAINNAME}
             - name: TOKEN
               valueFrom:
                 secretKeyRef:

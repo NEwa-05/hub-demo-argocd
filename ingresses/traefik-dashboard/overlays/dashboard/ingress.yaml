@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`dashboard.localdemo.mageekbox.eu`)
+  - match: Host(`dashboard.${CLUSTERNAME}.${DOMAINNAME}`)
     kind: Rule
     services:
     - name: api@internal

@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`monitoring.localdemo.mageekbox.eu`)
+      match: Host(`monitoring.${CLUSTERNAME}.${DOMAINNAME}`)
       services:
         - name: prometheus-stack-grafana
           port: 80

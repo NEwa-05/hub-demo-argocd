@@ -10,7 +10,7 @@ spec:
   source:
     path: tools/overlays/observability
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
   syncPolicy:
@@ -28,7 +28,7 @@ spec:
   source:
     path: tools/overlays/keycloak
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
 ### Apps
@@ -43,7 +43,7 @@ spec:
   source:
     path: apps/overlays
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
 ### Traefik Dashboard
@@ -58,7 +58,7 @@ spec:
   source:
     path: ingresses/traefik-dashboard/overlays
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
 ### Traefik
@@ -73,7 +73,7 @@ spec:
   source:
     path: traefik/overlays/hub-mgt
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
 ### Publications
@@ -88,7 +88,7 @@ spec:
   source:
     path: ingresses/3-hubmgt/overlays
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'
 ### Middlewares
@@ -103,6 +103,6 @@ spec:
   source:
     path: middlewares/overlays/hub
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
+    targetRevision: ${CLUSTERNAME}
   destination:
     server: 'https://kubernetes.default.svc'

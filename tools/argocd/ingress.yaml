@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`argocd.localdemo.mageekbox.eu`)
+      match: Host(`argocd.${CLUSTERNAME}.${DOMAINNAME}`)
       services:
         - name: argocd-server
           port: 80

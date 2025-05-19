@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-  - match: Host(`portal.localdemo.mageekbox.eu`)
+  - match: Host(`portal.${CLUSTERNAME}.${DOMAINNAME}`)
     kind: Rule
     services:
     - name: apiportal

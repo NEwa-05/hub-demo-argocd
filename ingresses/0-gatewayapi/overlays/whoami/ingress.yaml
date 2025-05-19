@@ -10,7 +10,7 @@ spec:
       sectionName: websecure
       kind: Gateway
   hostnames:
-    - whoami.localdemo.mageekbox.eu
+    - whoami.${CLUSTERNAME}.${DOMAINNAME}
   rules:
     - backendRefs:
         - name: whoami

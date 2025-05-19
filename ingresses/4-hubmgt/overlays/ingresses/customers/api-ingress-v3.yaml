@@ -12,7 +12,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`api.localdemo.mageekbox.eu`) && PathPrefix(`/customers/v3`)
+      match: Host(`api.${CLUSTERNAME}.${DOMAINNAME}`) && PathPrefix(`/customers/v3`)
       services:
         - name: customer-app-v3
           port: 3000
