@@ -7,9 +7,19 @@ generatorOptions:
 configMapGenerator:
   - behavior: create
     files:
-      - dashboard-hub.json=grafana-dashboards/hub/dashboard-hub.json
-      - hub-apis.json=grafana-dashboards/hub/hub-apis.json
-      - hub-main.json=grafana-dashboards/hub/hub-main.json
-      - hub-users.json=grafana-dashboards/hub/hub-users.json
-    name: grafana-hub-dashboards
-    namespace: monitoring
+      - dashboard-hub.json=grafana-dashboards/apim/dashboard-hub.json
+      - hub-apis.json=grafana-dashboards/apim/hub-apis.json
+      - hub-main.json=grafana-dashboards/apim/hub-main.json
+      - hub-users.json=grafana-dashboards/apim/hub-users.json
+    name: grafana-apim-dashboards
+    namespace: observability
+  - behavior: create
+    files:
+      - api_demo.json=grafana-dashboards/apig/api_demo.json
+    name: grafana-gateway-dashboard
+    namespace: observability
+  - behavior: create
+    files:
+      - traefik.json=grafana-dashboards/traefik/traefik.json
+    name: grafana-traefik-dashboard
+    namespace: observability

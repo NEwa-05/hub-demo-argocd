@@ -11,9 +11,9 @@ grafana:
     datasources:
       alertmanager:
         enabled: false
-  # plugins:
-  #   - grafana-github-datasource
-  # envFromSecret: ghtoken
+  plugins:
+    - grafana-github-datasource
+  envFromSecret: ghtoken
   additionalDataSources:
     - name: Loki
       access: proxy
@@ -23,11 +23,11 @@ grafana:
       type: loki
       url: http://loki:3100
       version: 1
-    # - name: github
-    #   type: grafana-github-datasource
-    #   isDefault: false
-    #   secureJsonData:
-    #     accessToken: ${GH_TOKEN}
+    - name: github
+      type: grafana-github-datasource
+      isDefault: false
+      secureJsonData:
+        accessToken: ${GH_TOKEN}
     - name: jaeger
       access: proxy
       isDefault: false
@@ -36,29 +36,38 @@ grafana:
       type: jaeger
       url: http://simplest-query:16686
       version: 1
-  # dashboardProviders:
-  #   dashboardproviders.yaml:
-  #   apiVersion: 1
-  #   providers:
-    # - name: hubdash
-    #   folder: Traefik Hub
-    #   type: file
-    #   orgId: 1
-    #   updateIntervalSeconds: 10
-    #   options:
-    #     path: /var/lib/grafana/dashboards/hubdash
-    #     foldersFromFilesStructure: false
-  #   - name: traefikdash
-  #     folder: Traefik API Gateway
-  #     type: file
-  #     orgId: 1
-  #     updateIntervalSeconds: 10
-  #     options:
-  #       path: /var/lib/grafana/dashboards/traefikdash
-  #       foldersFromFilesStructure: false
-  # dashboardsConfigMaps:
-    # hubdash: "grafana-hub-dashboards"
-    # traefikdash: "grafana-traefik-dashboards"
+  dashboardProviders:
+    dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: apimdash
+      folder: Hub API Management
+      type: file
+      orgId: 1
+      updateIntervalSeconds: 10
+      options:
+        path: /var/lib/grafana/dashboards/apimdash
+        foldersFromFilesStructure: false
+    - name: apigdash
+      folder: Hub API Gateway
+      type: file
+      orgId: 1
+      updateIntervalSeconds: 10
+      options:
+        path: /var/lib/grafana/dashboards/apigdash
+        foldersFromFilesStructure: false
+    - name: traefikdash
+      folder: Traefik
+      type: file
+      orgId: 1
+      updateIntervalSeconds: 10
+      options:
+        path: /var/lib/grafana/dashboards/traefikdash
+        foldersFromFilesStructure: false
+  dashboardsConfigMaps:
+    apimdash: "grafana-apim-dashboards"
+    apigdash: "grafana-gateway-dashboard"
+    traefikdash: "grafana-traefik-dashboard"
   adminPassword: traefikhub
 prometheus:
   global:
