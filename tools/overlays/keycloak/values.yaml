@@ -43,6 +43,8 @@ keycloakConfigCli:
     value: "true"
   - name: DEBUG
     value: "true"
+  - name: LOGGING_LEVEL_ROOT
+    value: "debug"
 postgresql:
   resources:
     requests:
