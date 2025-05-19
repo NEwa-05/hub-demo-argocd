@@ -20,7 +20,7 @@ patches:
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
-  - behavior: create
+  - behavior: replace
     files:
       - api_demo.json=prometheus-stack/grafana-dashboards/apig/api_demo.json
     name: grafana-gateway-dashboard
