@@ -33,15 +33,13 @@ keycloakConfigCli:
   cleanupAfterFinished:
     enabled: true
   extraEnvVars:
-  - name: KEYCLOAK_URL
-    value: "https://keycloak.localdemo.mageekbox.eu"
+  # - name: KEYCLOAK_URL
+  #   value: "https://keycloak.localdemo.mageekbox.eu"
   - name: JAVA_OPTS_APPEND
     value: "-server -Xms256m -Xmx384m"
   - name: KEYCLOAK_AVAILABILITYCHECK_TIMEOUT
     value: "10s"
   - name: KEYCLOAK_AVAILABILITYCHECK_ENABLED
-    value: "true"
-  - name: DEBUG
     value: "true"
   - name: LOGGING_LEVEL_ROOT
     value: "debug"
