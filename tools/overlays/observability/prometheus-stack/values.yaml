@@ -39,12 +39,9 @@ grafana:
   sidecar:
     dashboards:
       enabled: true
-      # label: grafana_dashboard
-      # labelValue: "true"
       searchNamespace: observability
       folder: /var/lib/grafana/dashboards
       updateIntervalSeconds: 10
-      # folderAnnotation: grafana_folder
       resourceName: configmap/grafana-apim-dashboards,configmap/grafana-gateway-dashboard,configmap/grafana-traefik-dashboard
       provider:
         allowUiUpdates: true
