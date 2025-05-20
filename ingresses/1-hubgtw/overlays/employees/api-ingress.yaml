@@ -1,0 +1,18 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: api-ingress-employees
+  namespace: apps
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`api.localdemo.mageekbox.eu`) && PathPrefix(`/employees`)
+      services:
+        - name: employee-app-latency
+          port: 3000
+      middlewares:
+        - name: employees-rl
+  tls:
