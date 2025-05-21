@@ -3,7 +3,7 @@ image:
   repository: traefik/traefik-hub
   tag: "v3"
 deployment:
-  replicas: 1
+  replicas: 2
 ingressClass:
   enabled: false
 providers:
