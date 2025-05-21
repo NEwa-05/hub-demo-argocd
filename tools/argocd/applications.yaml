@@ -16,21 +16,21 @@ spec:
   syncPolicy:
     syncOptions:
       - PruneLast=true
-### Keycloak
----    
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: keycloak
-  namespace: argocd
-spec:
-  project: default
-  source:
-    path: tools/overlays/keycloak
-    repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
-    targetRevision: localdemo
-  destination:
-    server: 'https://kubernetes.default.svc'
+### Keycloak only needed if cloud-iam unavailable
+# ---    
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: keycloak
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     path: tools/overlays/keycloak
+#     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
+#     targetRevision: localdemo
+#   destination:
+#     server: 'https://kubernetes.default.svc'
 ### Apps
 ---    
 apiVersion: argoproj.io/v1alpha1
