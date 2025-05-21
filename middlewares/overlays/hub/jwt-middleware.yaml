@@ -6,5 +6,5 @@ metadata:
 spec:
   plugin:
     jwt:
-      jwksUrl: "https://keycloak.localdemo.mageekbox.eu/realms/traefiklabs/protocol/openid-connect/certs"
+      jwksUrl: "https://lemur-3.cloud-iam.com/auth/realms/localdemo/protocol/openid-connect/certs"
       claims: Contains(`groups`, `admin`)
