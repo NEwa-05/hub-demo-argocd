@@ -71,7 +71,7 @@ metadata:
 spec:
   project: default
   source:
-    path: traefik/overlays/proxy
+    path: traefik/overlays/hub-gtw
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
@@ -86,7 +86,7 @@ metadata:
 spec:
   project: default
   source:
-    path: ingresses/3-proxy/overlays
+    path: ingresses/1-hubgtw/overlays
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
@@ -101,7 +101,7 @@ metadata:
 spec:
   project: default
   source:
-    path: middlewares/overlays/proxy
+    path: middlewares/overlays/hub
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:

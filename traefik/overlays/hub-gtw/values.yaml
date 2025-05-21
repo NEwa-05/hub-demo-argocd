@@ -3,7 +3,7 @@ image:
   repository: traefik/traefik-hub
   tag: "v3"
 deployment:
-  replicas: 2
+  replicas: 1
 ingressClass:
   enabled: false
 providers:
@@ -102,11 +102,11 @@ hub:
     enabled: false
   experimental:
     aigateway: true
+podSecurityContext:
+  fsGroup: 65532
+  fsGroupChangePolicy: OnRootMismatch
 experimental:
   plugins:
     treblle:
       moduleName: github.com/Treblle/TreblleTraefikPluginGo
       version: v1.0.5
-podSecurityContext:
-  fsGroup: 65532
-  fsGroupChangePolicy: OnRootMismatch
