@@ -9,8 +9,8 @@ spec:
     oidc:
       issuer: "https://lemur-3.cloud-iam.com/auth/realms/localdemo"
       redirectUrl: "/cback"
-      clientID: whoami
-      clientSecret: bdfbDPx3ysnvzcNwzvJFWHMPKnHVn79c
+      clientID: "whoami"
+      clientSecret: "bdfbDPx3ysnvzcNwzvJFWHMPKnHVn79c"
       scopes:
         - openid
         - offline_access
