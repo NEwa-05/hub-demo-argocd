@@ -14,6 +14,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
   syncPolicy:
+    automated: true
     syncOptions:
       - PruneLast=true
 ### Keycloak only needed if cloud-iam unavailable
@@ -106,3 +107,5 @@ spec:
     targetRevision: localdemo
   destination:
     server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated: true
