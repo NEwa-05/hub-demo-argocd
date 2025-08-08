@@ -99,17 +99,6 @@ spec:
       selfHeal: true
     syncOptions:
       - ApplyOutOfSyncOnly=true
-  #     - RespectIgnoreDifferences=true
-  # ignoreDifferences:
-  #   - kind: Secret
-  #     name: hub-agent-cert
-  #     namespace: traefik
-  #     jsonPointers:
-  #       - /data
-  #   - kind: MutatingWebhookConfiguration
-  #     name: hub-acp-traefik-traefik
-  #   - kind: MutatingWebhookConfiguration
-  #     name: hub-api-traefik-traefik
 ### Publications
 ---    
 apiVersion: argoproj.io/v1alpha1
