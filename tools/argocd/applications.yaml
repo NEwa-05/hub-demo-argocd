@@ -106,6 +106,10 @@ spec:
       namespace: traefik
       jsonPointers:
         - /data
+    - kind: MutatingWebhookConfiguration
+      name: hub-acp-traefik-traefik
+    - kind: MutatingWebhookConfiguration
+      name: hub-api-traefik-traefik
 ### Publications
 ---    
 apiVersion: argoproj.io/v1alpha1
