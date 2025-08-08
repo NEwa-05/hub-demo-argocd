@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc.cluster.local'
   syncPolicy:
     syncOptions:
       - PruneLast=true
@@ -45,7 +45,7 @@ spec:
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc.cluster.local'
 ### Traefik Dashboard
 ---    
 apiVersion: argoproj.io/v1alpha1
@@ -60,7 +60,7 @@ spec:
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc.cluster.local'
 ### Traefik
 ---    
 apiVersion: argoproj.io/v1alpha1
@@ -75,7 +75,7 @@ spec:
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc.cluster.local'
 ### Publications
 ---    
 apiVersion: argoproj.io/v1alpha1
@@ -90,7 +90,7 @@ spec:
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc.cluster.local'
 ### Middlewares
 ---    
 apiVersion: argoproj.io/v1alpha1
@@ -105,4 +105,4 @@ spec:
     repoURL: https://github.com/NEwa-05/hub-demo-argocd.git
     targetRevision: localdemo
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc.cluster.local'
