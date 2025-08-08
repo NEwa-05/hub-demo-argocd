@@ -10,7 +10,7 @@ helmCharts:
   - name: traefik
     includeCRDs: true
     repo: https://traefik.github.io/charts
-    version: v36.3.0
+    version: v36.2.0
     releaseName: traefik
     namespace: traefik
     valuesFile: values.yaml
