@@ -1,7 +1,7 @@
 image:
   registry: ghcr.io
   repository: traefik/traefik-hub
-  tag: "v3.16.6"
+  tag: "v3.30.6"
 deployment:
   replicas: 2
 ingressRoute:
