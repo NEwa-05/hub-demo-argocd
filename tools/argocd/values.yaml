@@ -1,7 +1,7 @@
 global:
   image:
     repository: quay.io/argoproj/argocd
-    tag: "v2.9.0"
+    tag: v3.0.12
     imagePullPolicy: IfNotPresent
 dex:
   enabled: false
