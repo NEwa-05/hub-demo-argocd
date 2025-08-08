@@ -99,6 +99,13 @@ spec:
       selfHeal: true
     syncOptions:
       - ApplyOutOfSyncOnly=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - kind: Secret
+      name: hub-agent-cert
+      namespace: traefik
+      jsonPointers:
+        - /data
 ### Publications
 ---    
 apiVersion: argoproj.io/v1alpha1
